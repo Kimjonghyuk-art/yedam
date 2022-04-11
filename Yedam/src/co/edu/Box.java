@@ -19,7 +19,8 @@ public class Box {
 		if(boxCount5 > 5) {
 			System.out.println("5개씩 담을 수 있는 상자" + (boxCount5/5+1));
 		}else if(boxCount5 <= 5) {
-			System.out.println("5개씩 담을 수 있는 상자 " + boxCount5/5);
+			int box5Count = (int)Math.ceil(boxCount5/5.0);
+			System.out.println("5개씩 담을 수 있는 상자 " + box5Count);
 		}
 
 	}
