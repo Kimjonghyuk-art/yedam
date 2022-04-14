@@ -57,8 +57,9 @@ class MonthSchedule {
 	void input() {
 			System.out.print("날짜?");
 			int selectDay = sc.nextInt();
-			System.out.print("할일(빈칸없이 입력)");
-			String work = sc.next();
+			sc.nextLine();
+			System.out.print("할일>>");
+			String work = sc.nextLine();
 			day[selectDay-1].set(work);
 			System.out.println();
 	}
@@ -80,7 +81,6 @@ public class MonthScheduleApp {
 		MonthSchedule ms = new MonthSchedule(30);
 		ms.run();
 		
-
 	}
 
 }
