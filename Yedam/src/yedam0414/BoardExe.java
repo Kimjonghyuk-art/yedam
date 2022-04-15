@@ -101,7 +101,6 @@ class BoardStart {
 		boardlist[bNoCnt].setContent(content);
 		boardlist[bNoCnt].setWriter(writer);
 		boardlist[bNoCnt].setbNo(bNO++); 
-		bNoCnt++;
 	}
 	
 	private void view() {
