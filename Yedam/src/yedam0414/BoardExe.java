@@ -104,12 +104,19 @@ class BoardStart {
 		sc.nextLine();
 		System.out.print("작성자 >>");
 		String writer = sc.next();
+<<<<<<< HEAD
 		//위에서 스캐너로 입력 받은 값을 게시글 번호를 기준으로 할당
 		boardlist[bNO].setTitle(title);
 		boardlist[bNO].setContent(content);
 		boardlist[bNO].setWriter(writer);
 		//할당 후 게시글 번호 증감연산자로 증가 처리
 		boardlist[bNO].setbNo(bNO++); 
+=======
+		boardlist[bNoCnt].setTitle(title);
+		boardlist[bNoCnt].setContent(content);
+		boardlist[bNoCnt].setWriter(writer);
+		boardlist[bNoCnt].setbNo(bNO++); 
+>>>>>>> branch 'master' of https://github.com/Kimjonghyuk-art/yedam.git
 	}
 	//출력 메소드
 	private void view() {
