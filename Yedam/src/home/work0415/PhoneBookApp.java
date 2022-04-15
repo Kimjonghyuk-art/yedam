@@ -30,13 +30,20 @@ public class PhoneBookApp {
 		for(int i = 0; i < phonebook.length; i++) {
 			if(phonebook[i] != null) {
 				phonebook[i].info();
-			}
+			} 
 		}
 		
 	}
 	//수정 메소드
-	public void update(PhoneBook phonebooks) {
+	public void update(PhoneBook phonebooks,String searchName) {
 		for(int i = 0; i < phonebook.length; i++) {
+			if(phonebook[i].getName().equals(searchName) &&
+					phonebook[i] != null) {
+				phonebook[i].setBirthDay(phonebooks.getBirthDay());
+				phonebook[i].setName(phonebooks.getName());
+				phonebook[i].setPhoneNumber(phonebooks.getPhoneNumber());
+				break;
+			}
 			
 		}
 	}
@@ -50,11 +57,21 @@ public class PhoneBookApp {
 		return false;
 		
 	}
+	//삭제 메소드 
+	public void delete(String deleteName) {
+		for(int i = 0; i < phonebook.length; i++) {
+			if(phonebook[i].getName().equals(deleteName) &&
+					phonebook[i] != null) {
+				phonebook[i].setName(null);
+				phonebook[i].setBirthDay(null);
+				phonebook[i].setPhoneNumber(null);
+				System.out.println("삭제되었습니다.");
+				break;
+			}
+		}
+		
+	}
 
 
-	
-	
-	
-	
-	
+
 }

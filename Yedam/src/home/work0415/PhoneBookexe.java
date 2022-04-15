@@ -38,16 +38,24 @@ public class PhoneBookexe {
 					System.out.print("생일 수정 > ");
 					String updateBirthDay = sc.nextLine();
 					PhoneBook pb = new PhoneBook(updateName,updatePhoneNumber,updateBirthDay);
-					pba.update(pb);
-				} else {
+					pba.update(pb,searchName);
+				} else if(pba.checkName(searchName) == false) {
 					System.out.println("검색한 이름이 존재하지 않음.");
 				}
 				
 				break;
 			case 3 :
+				System.out.print("삭제할 이름 검색 >");
+				String deleteName = sc.nextLine();
+				if(pba.checkName(deleteName) == true){
+					//PhoneBook pb = new PhoneBook(null,null,null);
+					pba.delete(deleteName);
+				} else if(pba.checkName(deleteName) == false) {
+					System.out.println("검색한 이름이 존재하지 않음.");
+				}
 				break;
 			case 4 :
-				pba.view();
+				
 				break;
 			case 5 :
 				break;
