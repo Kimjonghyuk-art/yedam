@@ -39,7 +39,8 @@ public class BoardExe {
 				String title = sc.nextLine();
 				System.out.print("내용 입력 >>");
 				String content = sc.nextLine();
-				ba.create(writer,title,content);
+				//입력 받은 값을 BoardApp의 create메소드로 넘겨줌
+				ba.create(writer,title,content); 
 				
 				break;
 			case 2:
