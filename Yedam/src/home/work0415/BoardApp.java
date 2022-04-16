@@ -26,4 +26,14 @@ public class BoardApp {
 		System.out.println(boardList.toString());
 	
 	}
+
+	//삭제 메소드 
+	public void delete(int deleteNum) {
+		
+		boardList.remove(deleteNum-1);
+		System.out.println("삭제 되었습니다.");
+		bNo--;
+	}
+	
+	
 }

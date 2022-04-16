@@ -45,6 +45,10 @@ public class BoardExe {
 			case 2:
 				break;
 			case 3:
+				System.out.print("삭제할 게시글 번호 선택 >");
+				int deleteNum = sc.nextInt();
+				ba.delete(deleteNum);
+				
 				break;
 			case 4:
 				ba.read();
