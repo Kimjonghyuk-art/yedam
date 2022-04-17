@@ -11,6 +11,10 @@ public class Board {
 	private int bCnt; //조회수
 	private String content; // 내용 
 	
+	public Board() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Board(int bNo, String writer, String title, String content) {
 		this.bNo = bNo;
 		this.writer = writer;
@@ -47,12 +51,15 @@ public class Board {
 		this.title = title;
 	}
 
-	public int getbNo() {
-		return bNo;
-	}
-
+	
 	public void setbNo(int bNo) {
 		this.bNo = bNo;
+	}
+	
+	
+
+	public int getbNo() {
+		return bNo;
 	}
 
 	public String getWriter() {

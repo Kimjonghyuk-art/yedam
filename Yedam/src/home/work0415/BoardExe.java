@@ -13,7 +13,7 @@ public class BoardExe {
 		BoardApp ba = new BoardApp();
 		
 		ArrayList<Board> boardList = new ArrayList<Board>();
-	
+		
 		while(true) {
 			
 			int menu = 0;
@@ -32,31 +32,20 @@ public class BoardExe {
 
 			switch(menu) {
 			case 1:
-				System.out.print("작성자 입력 >");
-				String writer = sc.next();
-				sc.nextLine();
-				System.out.print("제목 입력 >");
-				String title = sc.nextLine();
-				System.out.print("내용 입력 >>");
-				String content = sc.nextLine();
-				//입력 받은 값을 BoardApp의 create메소드로 넘겨줌
-				ba.create(writer,title,content); 
-				
+				ba.create(); 
 				break;
 			case 2:
+				ba.update();
 				break;
 			case 3:
-				System.out.print("삭제할 게시글 번호 선택 >");
-				int deleteNum = sc.nextInt();
-				ba.delete(deleteNum);
-				
+				ba.delete();
 				break;
 			case 4:
 				ba.read();
 				
 				break;
 			case 5:
-				
+				ba.searchWriterRead();
 				break;
 			case 6:
 				System.out.println("시스템 종료");
@@ -73,5 +62,7 @@ public class BoardExe {
 		
 
 	}
+
+
 
 }

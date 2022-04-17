@@ -7,18 +7,25 @@ import java.util.Scanner;
 public class ArrayListEx {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		var b = new ArrayList<String>();
+		ArrayList<String> b = new ArrayList<String>();
 		
-		for(int i = 0; i < 4; i++) {
-			System.out.print("이름 입력 >>");
-			String s = sc.next();
-			b.add(s);
+		String s;
+		/*
+		 * for(int i = 0; i < 4; i++) { System.out.print("이름 입력 >>"); s = sc.next();
+		 * if(b.contains(s)) { System.out.println("중복된 값"); continue; } b.add(s); }
+		 */
+		
+		
+		
+		/*
+		 * for(int i = 0; i < b.size(); i++) { String name = b.get(i);
+		 * System.out.print(name + " "); }
+		 */
+		
+		for(String i : b) {
+			System.out.print(i + " ");
 		}
 		
-		for(int i = 0; i < b.size(); i++) {
-			String name = b.get(i);
-			System.out.print(name + " ");
-		}
 		
 		int longestIndex = 0;
 		for(int i = 1; i < b.size(); i++) {
@@ -27,7 +34,32 @@ public class ArrayListEx {
 			}
 		}
 		
-		System.out.println("\n 가장 긴 이름은 : " + b.get(longestIndex));
+		//System.out.println("\n 가장 긴 이름은 : " + b.get(longestIndex));
+		
+		ArrayList<Votest> votest = new ArrayList<Votest>();
+		
+		
+		votest.add(new Votest("1이름",1));
+		votest.add(new Votest("2이름",2));
+		
+		
+		for(int i = 0; i < votest.size(); i++) {
+			System.out.println(votest.get(i).getName());
+		}
+		
+		for(int i = 0; i < votest.size(); i++) {
+			System.out.print("검색이름> ");
+			String searchname = sc.next();
+			if(votest.get(i).getName().equals(searchname)) {
+				System.out.print("수정할 이름 >");
+				String updatename = sc.next();
+				votest.get(i).setName(updatename);
+				System.out.println("수정된 이름" + votest.get(i).getName());
+			} else {
+				System.out.println("다른이름");
+			}
+		}
+		
 		sc.close();
 	}
 }
