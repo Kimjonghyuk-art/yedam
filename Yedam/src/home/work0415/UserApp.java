@@ -9,10 +9,10 @@ import java.util.Scanner;
 public class UserApp implements UserInterface {
 
 	Scanner sc = new Scanner(System.in);
-	int index = 0;
+	static int index = 0;
 	ArrayList<User> userlist = new ArrayList<User>();
 
-	boolean checkLogin = false;
+	static boolean checkLogin = false;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	Calendar now = Calendar.getInstance();

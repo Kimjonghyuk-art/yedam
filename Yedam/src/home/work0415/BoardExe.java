@@ -13,11 +13,11 @@ public class BoardExe {
 		BoardApp ba = new BoardApp();
 		
 		ArrayList<Board> boardList = new ArrayList<Board>();
+		UserApp ua = new UserApp();
 		
-		while(true) {
+		while(ua.currentCheckLogin()) {
 			
 			int menu = 0;
-			
 			try {
 				System.out.println("=====================================");
 				System.out.println("1.등록 2.수정 3.삭제 4.목록조회 5.작성자조회 6.회원관리창 7.종료");	
@@ -57,7 +57,7 @@ public class BoardExe {
 				System.out.println("다시 입력하세요");
 			}
 			
-			
+			System.out.print("로그인하세열");
 			
 			
 		}

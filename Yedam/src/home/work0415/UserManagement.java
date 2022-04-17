@@ -8,7 +8,10 @@ public class UserManagement {
 
 		Scanner sc = new Scanner(System.in);
 		UserApp ua = new UserApp();
+		
+		
 		while(true) {
+		
 			System.out.println("1.회원가입 2.로그인 3.로그아웃 4.회원정보보기 5.회원비밀번호수정 6.게시글쓰러가기 7.종료");
 			System.out.print("메뉴 선택 >> ");
 			int menu = sc.nextInt();
