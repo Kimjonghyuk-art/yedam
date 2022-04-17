@@ -46,7 +46,6 @@ public class UserApp implements UserInterface {
 				checkLogin = true;
 			}
 		}
-		
 	}
 
 	@Override
@@ -155,6 +154,28 @@ public class UserApp implements UserInterface {
 		}
 		return false;
 	}
+
+	//게시글 쓰러 가게 하는 메소드 
+	public void goBoard() {
+		
+		if(checkLogin == true) {
+			BoardExe.main(null);
+		}else {
+			System.out.println("로그인하세요");
+		}
+		
+		
+	}
+	
+	//현재 로그인 중인지 확인하는 메소드
+		public boolean currentCheckLogin() {
+			if(checkLogin == true) {
+				return true;
+			} else {
+				return false;	
+			}
+			
+		}
 	
 	
 }

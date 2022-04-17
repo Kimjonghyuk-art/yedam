@@ -20,7 +20,7 @@ public class BoardExe {
 			
 			try {
 				System.out.println("=====================================");
-				System.out.println("1.등록 2.수정 3.삭제 4.목록조회 5.작성자조회 6.종료");	
+				System.out.println("1.등록 2.수정 3.삭제 4.목록조회 5.작성자조회 6.회원관리창 7.종료");	
 				System.out.print("선택>>");
 				menu = sc.nextInt();
 				System.out.println("=====================================");
@@ -42,12 +42,14 @@ public class BoardExe {
 				break;
 			case 4:
 				ba.read();
-				
 				break;
 			case 5:
 				ba.searchWriterRead();
 				break;
 			case 6:
+				UserManagement.main(args);
+				break;
+			case 7:
 				System.out.println("시스템 종료");
 				System.exit(0);
 				break;

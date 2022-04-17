@@ -10,7 +10,7 @@ public class Board {
 	private String date; // 현재 날짜
 	private int bCnt; //조회수
 	private String content; // 내용 
-	
+	User user;
 	public Board() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,10 +23,10 @@ public class Board {
 		
 	}
 	
-	public Board(int bNo, String writer, String title, String date, int bCnt, String content) {
+	public Board(int bNo, User user, String title, String date, int bCnt, String content) {
 		super();
 		this.bNo = bNo;
-		this.writer = writer;
+		this.user = user;
 		this.title = title;
 		this.date = date;
 		this.bCnt = bCnt;
