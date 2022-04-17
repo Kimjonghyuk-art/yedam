@@ -73,15 +73,19 @@ public class BoardApp {
 	public void searchWriterRead() {
 		System.out.print("조회할 작성자 이름 입력 > ");
 		String searchName = sc.next();
+		boolean check = false;
 		for(int i = 0; i < boardList.size(); i++) {
 			if(boardList.get(i).getWriter().equals(searchName)) {
+				int currentbCnt = boardList.get(i).getbCnt();
 				System.out.println(boardList.get(i).toString());
-				boardList.get(i).setbCnt(bCnt); //조회 후 조회수 증가처리
-				bCnt++;
-				break;
-			} else {
-				System.out.println("조회할 이름이 없다야");
-			}
+				boardList.get(i).setbCnt(++currentbCnt); // 조회수 증가처리
+				check = true;
+				continue;
+			} 
+			
+		}
+		if(check == false) {
+			System.out.println("조회할 이름이 없다야");
 		}
 		
 	}
