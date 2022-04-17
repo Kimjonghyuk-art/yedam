@@ -68,9 +68,9 @@ public class PhoneManagement {
 		
 		while(it.hasNext()) {
 			String name = it.next();
-			Phone student = map.get(name);
-			System.out.println(name + " " + student.getAddress() + " "
-					+ student.getTelephone());
+			Phone p = map.get(name);
+			System.out.println(name + " " + p.getAddress() + " "
+					+ p.getTelephone());
 		}
 		
 	}
