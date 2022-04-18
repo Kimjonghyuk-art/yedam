@@ -6,34 +6,31 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BoardApp {
-	
 	ArrayList<Board> boardList = new ArrayList<Board>();
 	LocalDateTime now = LocalDateTime.now();
-	
+	//ArrayList<User> userlist = new ArrayList<User>();
 	String date = now.format(DateTimeFormatter.ofPattern("MM월 dd일 HH시 MM분"));
 	static Scanner sc = new Scanner(System.in);
 	int bNo = 1;
 	int bCnt = 0;
 	UserApp ua = new UserApp();
+	
+	
 	//게시글 등록 메소드 
 	public void create() {	
-		//System.out.print("작성자 입력 >");
-		//String writer = sc.next();
-		
 		
 		if(ua.checkLogin == true) {
 			System.out.print("제목 입력 >");
 			String title = sc.nextLine();
 			System.out.print("내용 입력 >>");
 			String content = sc.nextLine();		
-			System.out.println("ua ualist get ua.index = "+ua.index);
-			System.out.println(ua.userlist.get(1).getId());
-			//boardList.add(new Board(bNo,ua.userlist.get(ua.index).getId(), title, date, bCnt, content));
+			System.out.println(ua.userlist().get(ua.index).getId());
+			
+			boardList.add(new Board(bNo,ua.userlist.get(ua.index).getId(), title, date, bCnt, content));
 			System.out.println("저장되었습니다.");
 			bNo++; // 저장후 게시글 번호 증감처리
-		} else {
-			System.out.println("로그인 하세열");
-		}
+			
+		} 
 		
 	}
 	//출력 메소드

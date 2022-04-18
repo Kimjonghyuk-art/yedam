@@ -10,7 +10,7 @@ public class UserApp implements UserInterface {
 
 	Scanner sc = new Scanner(System.in);
 	static int index = 0;
-	ArrayList<User> userlist = new ArrayList<User>();
+	static ArrayList<User> userlist = new ArrayList<User>();
 
 	static boolean checkLogin = false;
 	
@@ -20,7 +20,7 @@ public class UserApp implements UserInterface {
 
 	@Override
 	public void signUp() {
-		// randomWord();
+		//randomWord();
 		System.out.print("아이디 입력 >");
 		String id = sc.next();
 		if(idCheck(id) == true) {
@@ -173,9 +173,14 @@ public class UserApp implements UserInterface {
 				return true;
 			} else {
 				return false;	
-			}
-			
+			}	
 		}
-	
-	
+		
+	public  ArrayList<User> userlist() {
+		
+		return userlist;
+	}
+		
+		
+		
 }
