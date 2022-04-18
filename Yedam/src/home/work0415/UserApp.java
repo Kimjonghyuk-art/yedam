@@ -13,23 +13,33 @@ public class UserApp implements UserInterface {
 	static ArrayList<User> userlist = new ArrayList<User>();
 
 	static boolean checkLogin = false;
-	
+
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	Calendar now = Calendar.getInstance();
 	String nowDate = sdf.format(now.getTime());
 
+	BoardApp ba = new BoardApp();
+	
 	@Override
 	public void signUp() {
-		//randomWord();
+		// randomWord();
 		System.out.print("아이디 입력 >");
 		String id = sc.next();
-		if(idCheck(id) == true) {
+		if (idCheck(id) == true) {
 			System.out.print("비밀번호 입력 > ");
 			String password = sc.next();
-			System.out.print("주소 입력 > ");
-			String address = sc.next();
-			userlist.add(new User(id, password, address, nowDate));
-			System.out.println("회원 가입이 완료 되었습니다.");
+			System.out.println("비밀번호 재입력 >");
+			String password2 = sc.next();
+			if (password.equals(password2)) {
+				System.out.print("주소 입력 > ");
+				String address = sc.next();
+				userlist.add(new User(id, password, address, nowDate));
+				System.out.println("회원 가입이 완료 되었습니다.");
+
+			} else {
+				System.out.println("비밀번호가 틀립니다. 다시 시도하세요.");
+				signUp();
+			}
 		}
 	}
 
@@ -37,35 +47,40 @@ public class UserApp implements UserInterface {
 	public void Login() {
 		System.out.println("아이디 입력 > ");
 		String id = sc.next();
-
-		if(idCheck(id) == false) {		
+		if (idCheck(id) == false) {
 			System.out.println("비밀번호 입력 > ");
 			String password = sc.next();
-			if(userlist.get(index).getPassword().equals(password)) {
+			if (userlist.get(index).getPassword().equals(password)) {
 				System.out.println("로그인 완료");
 				checkLogin = true;
 			}
+		} else if (idCheck(id) == true) {
+			System.out.println("등록된 아이디가 없습니다.");
 		}
 	}
 
 	@Override
 	public void logout() {
-		System.out.print("로그아웃 하시겠습니까? y/n");
-		String select = sc.next();
-		if(select.equals("y")) { 
-			checkLogin = false;
-			System.out.println("로그아웃 되었습니다.");
-		} else if(select.equals("n")) {
-			System.out.println("메뉴로 돌아갑니다.");
-		} else {
-			System.out.println("잘못된 접근");
+
+		if (checkLogin == true) {
+			System.out.print("로그아웃 하시겠습니까? y/n");
+			String select = sc.next();
+			if (select.equals("y")) {
+				checkLogin = false;
+				System.out.println("로그아웃 되었습니다.");
+			} else if (select.equals("n")) {
+				System.out.println("메뉴로 돌아갑니다.");
+			}
+
+		} else if (checkLogin == false) {
+			System.out.println("로그인 하세요.");
 		}
 	}
 
 	@Override
 	public void userInfo() {
 
-		if(checkLogin == true) {
+		if (checkLogin == true) {
 			System.out.print("현재 접속중인 ");
 			userlist.get(index).userInfo();
 		} else {
@@ -75,13 +90,13 @@ public class UserApp implements UserInterface {
 
 	@Override
 	public void changePassword() {
-		if(checkLogin == true) {
+		if (checkLogin == true) {
 			System.out.print("현재 접속중인 ");
 			userlist.get(index).userInfo();
 			System.out.println("비밀번호를 입력하세요 > ");
 			String password = sc.next();
-			
-			if(passwordCheck(password) == true) {
+
+			if (passwordCheck(password) == true) {
 				System.out.print("수정할 비밀번호 입력 : ");
 				String updatePassword = sc.next();
 				userlist.get(index).setPassword(updatePassword);
@@ -137,14 +152,14 @@ public class UserApp implements UserInterface {
 				System.out.println("아이디 체크 완료!");
 				index = i;
 				return false;
-			} 
+			}
 		}
 		return true;
 	}
-	
+
 	public boolean passwordCheck(String password) {
-		for(int i = 0; i < userlist.size(); i++) {
-			if(!userlist.isEmpty() && userlist.get(i).getPassword().equals(password)) {
+		for (int i = 0; i < userlist.size(); i++) {
+			if (!userlist.isEmpty() && userlist.get(i).getPassword().equals(password)) {
 				System.out.println("맞는 비밀번호");
 				return true;
 			} else {
@@ -155,32 +170,65 @@ public class UserApp implements UserInterface {
 		return false;
 	}
 
-	//게시글 쓰러 가게 하는 메소드 
+	// 게시글 쓰러 가게 하는 메소드
 	public void goBoard() {
-		
-		if(checkLogin == true) {
+
+		if (checkLogin == true) {
 			BoardExe.main(null);
-		}else {
+		} else {
 			System.out.println("로그인하세요");
 		}
-		
-		
+
 	}
-	
-	//현재 로그인 중인지 확인하는 메소드
-		public boolean currentCheckLogin() {
-			if(checkLogin == true) {
-				return true;
-			} else {
-				return false;	
-			}	
+
+	// 현재 로그인 중인지 확인하는 메소드
+	public boolean currentCheckLogin() {
+		if (checkLogin == true) {
+			return true;
+		} else {
+			return false;
 		}
-		
-	public  ArrayList<User> userlist() {
-		
+	}
+
+	public ArrayList<User> userlist() {
+
 		return userlist;
 	}
-		
-		
-		
+
+	// 실행 메소드
+	public void run() {
+		while (true) {
+			System.out.println("1.회원가입 2.로그인 3.로그아웃 4.회원정보보기 5.회원비밀번호수정 6.게시글쓰러가기 7.종료");
+			System.out.print("메뉴 선택 >> ");
+			int menu = sc.nextInt();
+
+			switch (menu) {
+			case 1:
+				signUp();
+				break;
+			case 2:
+				Login();
+				break;
+			case 3:
+				logout();
+				break;
+			case 4:
+				userInfo();
+				break;
+			case 5:
+				changePassword();
+				break;
+			case 6:
+				ba.run();
+				break;
+			case 7:
+				System.out.println("시스템을 종료합니다.");
+				System.exit(0);
+				break;
+			default:
+				System.out.println("다시 입력하세요");
+			}
+		}
+
+	}
 }
