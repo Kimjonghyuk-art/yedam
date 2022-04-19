@@ -1,0 +1,31 @@
+package yedam0419.interfaces2;
+
+public class OracleDAO implements DAO {
+
+	@Override
+	public void insert() {
+		System.out.println("Oracle 입력처리 ");
+		
+	}
+
+	@Override
+	public void update() {
+		System.out.println("Oracle 수정처리 ");
+		
+	}
+
+	@Override
+	public void delete() {
+		System.out.println("Oracle 삭제처리 ");
+		
+	}
+
+	@Override
+	public void list() {
+		System.out.println("Oracle 목록처리 ");
+		
+	}
+
+	
+	
+}

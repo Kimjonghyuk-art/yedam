@@ -18,7 +18,7 @@ public class UserApp implements UserInterface {
 	Calendar now = Calendar.getInstance();
 	String nowDate = sdf.format(now.getTime());
 
-	BoardApp ba = new BoardApp();
+
 	
 	@Override
 	public void signUp() {
@@ -219,6 +219,7 @@ public class UserApp implements UserInterface {
 				changePassword();
 				break;
 			case 6:
+				BoardApp ba = new BoardApp();
 				ba.run();
 				break;
 			case 7:
@@ -227,6 +228,7 @@ public class UserApp implements UserInterface {
 				break;
 			default:
 				System.out.println("다시 입력하세요");
+				break;
 			}
 		}
 

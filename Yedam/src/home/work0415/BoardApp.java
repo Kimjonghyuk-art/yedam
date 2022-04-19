@@ -56,6 +56,7 @@ public class BoardApp {
 				break;
 			default:
 				System.out.println("다시 입력하세요");
+				break;
 			}
 
 		}

@@ -17,7 +17,7 @@ public class Friend {
 		this.phoneNum = phoneNum;
 	}
 
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
