@@ -1,8 +1,10 @@
 package yedam0419.collection;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import yedam0418.Inheritance.ex.Friend;
+import yedam0418.Inheritance.ex.Gender;
 
 //친구목록 저장하기  APP.
 //추가, 수정, 삭제, 조회
@@ -19,16 +21,24 @@ public class FriendApp {
 		
 		while(true) {
 			
-			System.out.println("1.추가 2.수정 3.삭제 4.한건 조회 5. 종료");
+			System.out.println("1.추가 2.수정 3.삭제 4.한건 조회 5.남자목록 6.여자목록 7.종료");
 			int menu = sc.nextInt();
 			
 			switch(menu) {
-			case 1:
-				System.out.println("입력할 이름 >");
+			case FriendService.INSERT :
+				System.out.print("입력할 이름 >");
 				String name = sc.next();
-				System.out.println("입력할 전화번호 > ");
+				System.out.print("입력할 전화번호 > ");
 				String tel = sc.next();
-				Friend insertFriend = new Friend(name,tel);
+				System.out.print("성별(남자,여자) >>");
+				String gender = sc.next();
+				Gender gen = Gender.MEN;
+				if(gender.startsWith("남")) {
+					gen = Gender.MEN;
+				} else if(gender.startsWith("여")) {
+					gen = Gender.WOMEN;
+				}
+				Friend insertFriend = new Friend(name,tel,gen);
 				
 				fs.insert(insertFriend);
 				break;
@@ -51,6 +61,20 @@ public class FriendApp {
 				fs.select(selectName);
 				break;
 			case 5:
+				Gender men = Gender.MEN;
+				ArrayList<Friend> menlist = fs.findGender(men);
+				for(Friend i : menlist) {
+					System.out.println(i.toString());
+				}
+				break;
+			case 6:
+				Gender women = Gender.WOMEN;
+				ArrayList<Friend> womenlist = fs.findGender(women);
+				for(Friend i : womenlist) {
+					System.out.println(i.toString());
+				}
+				break;
+			case 7:
 				System.out.println("시스템종료 ");
 				break;
 			default :

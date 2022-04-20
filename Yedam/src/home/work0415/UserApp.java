@@ -3,6 +3,7 @@ package home.work0415;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class UserApp implements UserInterface {
 	
 	@Override
 	public void signUp() {
-		// randomWord();
+		randomWord();
 		System.out.print("아이디 입력 >");
 		String id = sc.next();
 		if (idCheck(id) == true) {
@@ -137,6 +138,7 @@ public class UserApp implements UserInterface {
 		System.out.println(newword);
 		System.out.print("입력 >>");
 		String checkWord = sc.next();
+		
 		if (checkWord.equals(newword)) {
 			System.out.println("같음");
 			return true;
@@ -200,7 +202,14 @@ public class UserApp implements UserInterface {
 		while (true) {
 			System.out.println("1.회원가입 2.로그인 3.로그아웃 4.회원정보보기 5.회원비밀번호수정 6.게시글쓰러가기 7.종료");
 			System.out.print("메뉴 선택 >> ");
-			int menu = sc.nextInt();
+			int menu = 0;
+			try {
+				menu = sc.nextInt();
+				
+			} catch(InputMismatchException e) {
+				System.out.println("잘못 입력했");
+				sc.next();
+			}
 
 			switch (menu) {
 			case 1:

@@ -6,7 +6,7 @@ public class Friend {
 
 	private String name;
 	private String phoneNum;
-	
+	private Gender gender;
 	
 	protected Friend() {
 	}
@@ -15,6 +15,14 @@ public class Friend {
 		super();
 		this.name = name;
 		this.phoneNum = phoneNum;
+	}
+	
+
+	public Friend(String name, String phoneNum, Gender gender) {
+		super();
+		this.name = name;
+		this.phoneNum = phoneNum;
+		this.gender = gender;
 	}
 
 	public String getName() {
@@ -33,11 +41,20 @@ public class Friend {
 		this.phoneNum = phoneNum;
 	}
 
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
 	@Override
 	public String toString() {
-		return "Friend [name=" + name + ", phoneNum=" + phoneNum + "]";
+		return "Friend [name=" + name + ", phoneNum=" + phoneNum + ", gender=" + gender + "]";
 	}
-	
+
 	
 	
 	

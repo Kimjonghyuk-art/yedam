@@ -7,12 +7,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BoardApp {
-	ArrayList<Board> boardList = new ArrayList<Board>();
+	static ArrayList<Board> boardList = new ArrayList<Board>();
 	LocalDateTime now = LocalDateTime.now();
 	// ArrayList<User> userlist = new ArrayList<User>();
 	String date = now.format(DateTimeFormatter.ofPattern("MM월 dd일 HH시 MM분"));
 	static Scanner sc = new Scanner(System.in);
-	int bNo = 1;
+	static int bNo = 1;
 	int bCnt = 0;
 	UserApp ua = new UserApp();
 
@@ -60,24 +60,22 @@ public class BoardApp {
 			}
 
 		}
+		System.out.println("로그인하세요");
 	}
 
 	// 게시글 등록 메소드
 	public void create() {
-
+		
 		if (ua.checkLogin == true) {
 			System.out.print("제목 입력 >");
-			String title = sc.nextLine();
+			String title = sc.next();
 			System.out.print("내용 입력 >>");
-			String content = sc.nextLine();
+			String content = sc.next();
 			System.out.println(ua.userlist().get(ua.index).getId());
-
 			boardList.add(new Board(bNo, ua.userlist.get(ua.index).getId(), title, date, bCnt, content));
 			System.out.println("저장되었습니다.");
 			bNo++; // 저장후 게시글 번호 증감처리
-
 		}
-
 	}
 
 	// 출력 메소드

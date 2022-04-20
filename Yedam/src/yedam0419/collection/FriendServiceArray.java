@@ -1,8 +1,10 @@
 package yedam0419.collection;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import yedam0418.Inheritance.ex.Friend;
+import yedam0418.Inheritance.ex.Gender;
 //배열의 기능 활용.
 public class FriendServiceArray implements FriendService {
 	Scanner sc = new Scanner(System.in);
@@ -60,6 +62,12 @@ public class FriendServiceArray implements FriendService {
 				break;
 			}
 		}
+		return null;
+	}
+
+	@Override
+	public ArrayList<Friend> findGender(Gender gender) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
