@@ -77,7 +77,6 @@ public class BoardApp {
 			bNo++; // 저장후 게시글 번호 증감처리
 		}
 	}
-
 	// 출력 메소드
 	public void read() {
 		if (!boardList.isEmpty()) {
