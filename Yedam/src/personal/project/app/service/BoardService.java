@@ -59,6 +59,29 @@ public class BoardService {
 		return list;
 	}
 	
+	
+	//총 게시글 구하는 메소드
+	public int getCount() throws ClassNotFoundException, SQLException {
+		int count = 0;
+		String sql = "SELECT COUNT(bNo) COUNT FROM testBoard";
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url,id,pw); //DB 연결
+		Statement st = con.createStatement();//connect를 이용해 sql명령을 실행하는 객체
+		
+		ResultSet rs = st.executeQuery(sql); //sql 실행 후 select 결과를 저장하는 객체
+	
+		if(rs.next())
+			count = rs.getInt("COUNT");
+		
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return count;
+	}
+	
+	
 	public int insert(BoardVO BoardVO) throws ClassNotFoundException, SQLException {
 			
 				String bTitle =BoardVO.getbTitle();
@@ -130,6 +153,8 @@ public class BoardService {
 		con.close();
 		return result;
 	}
+
+
 }
 
 	

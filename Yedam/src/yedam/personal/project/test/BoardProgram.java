@@ -20,8 +20,10 @@ public class BoardProgram {
 			case 1: // 상세조회
 				break;
 			case 2: // 이전
+				console.movePrevList();
 				break;
 			case 3: // 다음
+				console.moveNextList();
 				break;
 			case 4: // 글쓰기
 				break;
