@@ -24,12 +24,7 @@ public class BoardService {
 		int start = 1 + (page-1)*10; 
 		int end = 10*page; // 
 		
-		String sql = "SELECT * FROM ( "
-				+ "SELECT ROWNUM NUM,N.* FROM ( "
-				+ "SELECT * FROM testBoard ORDER BY bWriteDate DESC "
-				+ "    ) N"
-				+ ") "
-				+ "WHERE NUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM testBoard_view WHERE NUM BETWEEN ? AND ?";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url,id,pw); //DB 연결
 		PreparedStatement st = con.prepareStatement(sql);//connect를 이용해 sql명령을 실행하는 객체

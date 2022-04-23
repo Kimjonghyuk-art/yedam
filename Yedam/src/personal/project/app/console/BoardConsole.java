@@ -17,7 +17,7 @@ public class BoardConsole {
 	
 	//출력메소드
 	public void viewBoardList() throws ClassNotFoundException, SQLException {
-		List<BoardVO> list = bservice.getList(2);
+		List<BoardVO> list = bservice.getList(1);
 		
 		System.out.println("──────────────────────────────────");
 		System.out.printf("<게시판> 총 %d 게시글\n", 12);
