@@ -14,6 +14,7 @@ public class JDBCTest {
 		//1. 4가지 정보 저장
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		//String url = "jdbc:oracle:thin:@jonghyuk_high?TNS_ADMIN=C:\\dev\\db\\Wallet_JongHyuk.zip";
 		String id = "scott";
 		String pw = "tiger";
 		
