@@ -13,7 +13,6 @@ public class JDBCTest1 {
 				String pw = "tiger";
 				
 				//2. 드라이버 생성 
-				
 				Connection con = null; //DB 연결
 				//Statement stmt = null; //connect를 이용해 sql명령을 실행하는 객체
 				//ResultSet rs = null; //sql 실행 후 select 결과를 저장하는 객체
