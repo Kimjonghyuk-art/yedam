@@ -15,7 +15,6 @@ public class JDBCTest3 {
 		String id = "scott";
 		String pw = "tiger";
 		
-		
 		String bTitle ="수정한 자바 제목";
 		String bWirter = "수정한 자바작성자";
 		String bContent = "수정한 자바 내용";
